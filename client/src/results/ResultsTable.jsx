@@ -1,21 +1,7 @@
 import React from 'react';
 import '../App.css';
+import ResultsRow from './ResultsRow';
 
-function ResultsRow(cityData) {
-	const{sunsetDate,sunriseDate}= cityData;
-    
-	const sunrise = new Date(sunriseDate);
-	console.log(new Date(sunsetDate*1000));
-	console.log(sunrise);
-	return (
-		<tr>
-			<td>{cityData.cityName}</td>  
-			<td>{cityData.temperature}</td>  
-			{/* <td>{new Date(cityData.sunriseDate).parse()}</td>  
-			<td>{new Date(cityData.sunsetDate).parse()}</td>   */}
-		</tr>
-	);
-}
 
 function ResultsTable() {
 	const results = [
