@@ -1,6 +1,6 @@
 import React from 'react';
-import '../App.css';
-import {timeParser} from './TimeUtils';
+import '../../App.css';
+import {timeParser} from '../TimeUtils';
 
 
 function ResultsRow({cityData}) {

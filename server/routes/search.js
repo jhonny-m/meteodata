@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const weatherRequestUrlBuilder = function(city){
 	const keyParameter =  '&appid=';
-	
+	const key = process.env.OWM_KEY;
 	const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
 	return baseUrl + city + keyParameter + key;
 };

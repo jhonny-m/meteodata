@@ -2,14 +2,10 @@ import { useEffect, useState, useRef } from 'react';
 
 const useSearchForm = ({ initialValues, onSubmit }) => {
 	const [values, setValues] = useState(initialValues || {});
-	const [onSubmitting, setOnSubmitting] = useState(false);
-	const [touched, setTouched] = useState({});
 	const formRendered = useRef(true);
 	useEffect(() => {
 		if (formRendered.current) {
 			setValues(initialValues);
-			setTouched({});
-			setOnSubmitting(false);
 		}
 		formRendered.current = false;
 	}, [initialValues]);
@@ -29,7 +25,6 @@ const useSearchForm = ({ initialValues, onSubmit }) => {
 
 	return {
 		values,
-		touched,
 		handleChange,
 		handleSubmit,
 	};

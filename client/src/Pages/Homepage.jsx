@@ -1,7 +1,8 @@
 import React from 'react';
 import '../App.css';
-import CitiesSearch from '../shared/CitiesSearch';
-import ResultsTable from '../results/ResultsTable';
+import CitiesSearch from '../Search/CitiesSearch';
+import ResultsTable from '../Results/Table/ResultsTable';
+import ResultsGraph from '../Results/Graph/ResultsGraph';
 
 
 
@@ -11,6 +12,7 @@ function Homepage() {
 		<div className="Homepage">
 			<CitiesSearch />
 			<ResultsTable/>
+			<ResultsGraph/>
 		</div>
 	);
 }

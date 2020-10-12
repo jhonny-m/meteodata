@@ -2,6 +2,8 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
+
+require('dotenv').config();
 var cors = require('cors');
 
 
