@@ -3,8 +3,7 @@ import '../App.css';
 import {timeParser} from './TimeUtils';
 
 
-
-function ResultsRow(cityData) {
+function ResultsRow({cityData}) {
 	const{cityName, temperature, sunsetDate,sunriseDate}= cityData; 
 	return (
 		<tr>
@@ -15,5 +14,6 @@ function ResultsRow(cityData) {
 		</tr>
 	);
 }
+
 
 export default ResultsRow;
