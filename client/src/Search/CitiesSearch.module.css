@@ -1,0 +1,29 @@
+.container{
+    padding:0;
+    margin: 16px 0;
+}
+
+.searchButton{
+    border: 1px transparent solid;
+    border-radius: 4px;
+    padding: 6px;   
+    color: #264653;
+    background-color: #d3d3d3;
+}
+
+.searchButton:hover{
+    border: 1px #264653 solid;
+    background-color: #ebebeb;
+}
+
+.searchButtonDisabled{
+    background-color: #d3d3d3;
+    color: #ffffff;
+    border: 1px transparent solid;
+}
+
+.searchButton:hover{
+    background-color: #d3d3d3;
+    color: #ffffff;
+    border: 1px transparent solid;
+}

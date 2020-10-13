@@ -1,0 +1,32 @@
+/* #264653
+#2a9d8f
+#e9c46a
+#f4a261
+#e76f51 */
+.input{
+   border: none;
+}
+
+.addButton{
+    border: none;
+    background-color: inherit;
+    color:#2a9d8f;
+    padding: 0 ;
+    margin: 0 8px;
+}
+.addButtonDisabled{
+    color:#d3d3d3;
+}
+
+.label{
+    padding: 0;
+    margin: 0 8px;
+}
+
+.form{
+    display: flex;
+    border-radius: 16px;
+    border: 1px #2a9d8f solid;
+    color: #2a9d8f;
+    padding: 4px;
+}

@@ -1,0 +1,34 @@
+.list{
+    list-style-type: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.listItem{
+    display: flex;
+    justify-content: space-between;
+    margin: 4px;
+    color:#264653;
+}
+
+.listText{
+    margin: 0 0 0 8px;
+}
+
+.removeButton{
+    border: none;
+    background-color: inherit;
+    color:#e76f51;
+    padding: 0;
+    margin: 0 8px;
+}
+
+.removeButton:hover{
+    color:#f4a261;
+}
+
+.separator{
+    margin: 8px 12px;
+    border: none;
+    border-top: 1px #264653 solid;
+}

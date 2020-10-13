@@ -1,18 +1,33 @@
-import React from 'react';
-import '../App.css';
+import React, { useState } from 'react';
+import homepageStyles from './Homepage.module.css';
 import CitiesSearch from '../Search/CitiesSearch';
 import ResultsTable from '../Results/Table/ResultsTable';
 import ResultsGraph from '../Results/Graph/ResultsGraph';
 
+function ResultsBody({results}){
+	return (
+		<div className={homepageStyles.container}>
+			<ResultsGraph results={results}/>
+			<ResultsTable results={results}/>
+		</div>
+	);
 
+}
 
 function Homepage() {
+	const [results, setResults]= useState([]);
+	function handleSearchResponse (data){
+		setResults([...data]);
+	}
 
+	const isResultsEmpty = results.length ===0;
 	return (
-		<div className="Homepage">
-			<CitiesSearch />
-			<ResultsTable/>
-			<ResultsGraph/>
+		<div className={homepageStyles.container}>
+			<div className={homepageStyles.citySearchContainer}>
+				<CitiesSearch handleSearchResponse={handleSearchResponse}/>
+			</div>
+			{!isResultsEmpty && <ResultsBody results={results}/>}
+			
 		</div>
 	);
 }

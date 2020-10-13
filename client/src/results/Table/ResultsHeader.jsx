@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import '../../App.css';
+import resultsTableStyles from './ResultsTable.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSort } from '@fortawesome/free-solid-svg-icons';
 
 function ColumnHeader({title, onOrderClick, objectKey}){
 	const [order, setOrder]= useState('asc');
@@ -10,8 +12,16 @@ function ColumnHeader({title, onOrderClick, objectKey}){
 		onOrderClick(objectKey, order);
 		toggleOrder();
 	}
+	const tableHeaderClassName=`${resultsTableStyles.tableCell} ${resultsTableStyles.tableHeader}`;
 
-	return( <th>{title} <button type="button" onClick={onClick}>order</button> </th>);  
+	return( <th className={tableHeaderClassName}>
+		<span className={resultsTableStyles.tableHeaderText}>{title}</span> 
+		<button type="button"
+			className={resultsTableStyles.sortButton}
+			onClick={onClick}>
+			<FontAwesomeIcon icon={faSort} />
+		</button> 
+	</th>);  
 }
 
 function ResultsHeader({onOrderClick}) {

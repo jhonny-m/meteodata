@@ -1,38 +1,12 @@
 import React, { useState } from 'react';
-import '../App.css';
+import PropTypes from 'prop-types';
 import CityInputForm from './CityInputForm';
-
-const baseUrl = 'http://localhost:3001/search?';
-
-function citiesToQuery(cities){
-	return cities.reduce((acc, city,index)=>{
-		const queryConnector = index<cities.length-1?'&':'';
-		return `${acc}cities=${city}${queryConnector}`;
-	},'');
-}
-function citiesSearchUrlBuilder(cities){
-	return `${baseUrl}${citiesToQuery(cities)}`;
-}
-
-function handleGetRequest(url, callback){
-	fetch(url).then((response)=> {
-		return response.json();
-	}).then(data=>{
-		callback(data);
-	});
-}
+import CityList from './CityList';
+import CitiesSearchStyles from './CitiesSearch.module.css';
+import {citiesSearchUrlBuilder, handleGetRequest} from './Utils/SearchRequestUtils';
 
 
-
-function CityList({cities, handleCityItemRemove}){
-	return(
-		<ul>
-			{cities.map((city)=><li key={city}>{city} <button type="button" onClick={()=>handleCityItemRemove(city)}>x</button></li>)}
-		</ul>   
-	);
-}
-
-function CitiesSearch() {    
+function CitiesSearch({handleSearchResponse}) {    
 	const [cities, setCities] = useState([]); 
     
 	function handleCityInputFormSubmit(values){
@@ -44,17 +18,29 @@ function CitiesSearch() {
 	}
 	function handleCitiesSearchSubmit(){
 		const url = citiesSearchUrlBuilder(cities);
-		handleGetRequest(url, data=>console.log(data));
+		handleGetRequest(url, data=>handleSearchResponse(data));
 
 	}
-	
+	const isSearchDisabled = cities.length<3;
+	const searchButtonClassName = `${CitiesSearchStyles.searchButton} ${isSearchDisabled && CitiesSearchStyles.searchButtonDisabled}`;
 	return (
-		<div>
+		<div className={CitiesSearchStyles.container}> 
 			<CityInputForm handleCityInputFormSubmit={handleCityInputFormSubmit}/>
 			<CityList handleCityItemRemove={handleCityItemRemove} cities={cities}/>
-			<button onClick={handleCitiesSearchSubmit}>Search</button>
+			<button 
+				title={isSearchDisabled?'Add at least 3 cities': 'Search temperatures'}
+				disabled={isSearchDisabled} 
+				onClick={handleCitiesSearchSubmit} 
+				className={searchButtonClassName}>
+				Search
+			</button>
 		</div>
 	);
 }
+
+CitiesSearch.propTypes={
+	handleSearchResponse:PropTypes.func.isRequired,
+};
+
 
 export default CitiesSearch;
