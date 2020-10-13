@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import homepageStyles from './Homepage.module.css';
 import CitiesSearch from '../Search/CitiesSearch';
 import ResultsTable from '../Results/Table/ResultsTable';
@@ -13,6 +14,9 @@ function ResultsBody({results}){
 	);
 
 }
+ResultsBody.propTypes={
+	results:PropTypes.array.isRequired,
+};
 
 function Homepage() {
 	const [results, setResults]= useState([]);

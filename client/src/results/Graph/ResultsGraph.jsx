@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BarChart, Bar,  XAxis, YAxis ,Legend,Tooltip} from 'recharts';
 
 
@@ -16,7 +17,9 @@ function ResultsGraph({results}) {
 		</BarChart >
 	);
 }
-
+ResultsGraph.propTypes={
+	results:PropTypes.array.isRequired,
+};
 
 export default ResultsGraph;
 

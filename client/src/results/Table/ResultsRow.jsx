@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import resultsTableStyles from './ResultsTable.module.css';
 import {timeParser} from '../TimeUtils';
 
@@ -15,5 +16,8 @@ function ResultsRow({cityData}) {
 	);
 }
 
+ResultsRow.propTypes={
+	cityData:PropTypes.object.isRequired,
+};
 
 export default ResultsRow;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import resultsTableStyles from './ResultsTable.module.css';
 import ResultsHeader from './ResultsHeader';
 import ResultsRow from './ResultsRow';
@@ -50,4 +51,9 @@ function ResultsTable({results}) {
 	);
     
 }
+
+ResultsTable.propTypes={
+	results:PropTypes.array.isRequired,
+};
+
 export default ResultsTable;

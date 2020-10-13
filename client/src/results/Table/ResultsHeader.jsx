@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import resultsTableStyles from './ResultsTable.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
@@ -23,6 +24,11 @@ function ColumnHeader({title, onOrderClick, objectKey}){
 		</button> 
 	</th>);  
 }
+ColumnHeader.propTypes={
+	title:PropTypes.string.isRequired,
+	onOrderClick:PropTypes.func.isRequired,
+	objectKey:PropTypes.string.isRequired,
+};
 
 function ResultsHeader({onOrderClick}) {
 	return (
@@ -34,5 +40,9 @@ function ResultsHeader({onOrderClick}) {
 		</tr>
 	);
 }
+
+ResultsHeader.propTypes={
+	onOrderClick:PropTypes.func.isRequired,
+};
 
 export default ResultsHeader;
