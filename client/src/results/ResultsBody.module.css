@@ -3,3 +3,6 @@
     flex-direction: column;
     align-items: center;
 }
+.tableContainer{
+    margin: 32px 16px 16px;
+}

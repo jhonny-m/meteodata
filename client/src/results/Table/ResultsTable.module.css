@@ -41,3 +41,10 @@
 .tableHeaderText{
     margin: 6px;
 }
+
+@media only screen and (max-width: 377px) {
+    .tableHeader{
+        padding:4px;
+        font-size: 0.9rem;
+    }
+  }

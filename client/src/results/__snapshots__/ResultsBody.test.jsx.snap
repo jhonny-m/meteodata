@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultsBody 1`] = `
+<div
+  className="container"
+>
+  <ResultsGraph
+    results={
+      Array [
+        Object {
+          "cityName": "Porto",
+          "sunriseDate": 1602657904,
+          "sunsetDate": 1602698118,
+          "temperature": 13,
+        },
+        Object {
+          "cityName": "Braga",
+          "sunriseDate": 1602657882,
+          "sunsetDate": 1602698049,
+          "temperature": 13,
+        },
+        Object {
+          "cityName": "Aveiro",
+          "sunriseDate": 1602657885,
+          "sunsetDate": 1602698157,
+          "temperature": 14,
+        },
+      ]
+    }
+  />
+  <div
+    className="tableContainer"
+  >
+    <ResultsTable
+      results={
+        Array [
+          Object {
+            "cityName": "Porto",
+            "sunriseDate": 1602657904,
+            "sunsetDate": 1602698118,
+            "temperature": 13,
+          },
+          Object {
+            "cityName": "Braga",
+            "sunriseDate": 1602657882,
+            "sunsetDate": 1602698049,
+            "temperature": 13,
+          },
+          Object {
+            "cityName": "Aveiro",
+            "sunriseDate": 1602657885,
+            "sunsetDate": 1602698157,
+            "temperature": 14,
+          },
+        ]
+      }
+    />
+  </div>
+</div>
+`;

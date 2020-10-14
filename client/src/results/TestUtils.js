@@ -1,0 +1,20 @@
+export  const mockedResults = [
+	{
+		'cityName':'Porto',
+		'sunriseDate':1602657904,
+		'sunsetDate':1602698118,
+		'temperature':285.97
+	},
+	{
+		'cityName':'Braga',
+		'sunriseDate':1602657882,
+		'sunsetDate':1602698049,
+		'temperature':285.93
+	},
+	{
+		'cityName':'Aveiro',
+		'sunriseDate':1602657885,
+		'sunsetDate':1602698157,
+		'temperature':287.64
+	}
+];

@@ -23,17 +23,18 @@ function CitiesSearch({handleSearchResponse}) {
 	}
 	const isSearchDisabled = cities.length<3;
 	const searchButtonClassName = `${CitiesSearchStyles.searchButton} ${isSearchDisabled && CitiesSearchStyles.searchButtonDisabled}`;
+	const isCitiesEmpty = cities.length ===0;
 	return (
 		<div className={CitiesSearchStyles.container}> 
 			<CityInputForm handleCityInputFormSubmit={handleCityInputFormSubmit}/>
 			<CityList handleCityItemRemove={handleCityItemRemove} cities={cities}/>
-			<button 
+			{!isCitiesEmpty&&<button 
 				title={isSearchDisabled?'Add at least 3 cities': 'Search temperatures'}
 				disabled={isSearchDisabled} 
 				onClick={handleCitiesSearchSubmit} 
 				className={searchButtonClassName}>
 				Search
-			</button>
+			</button>}
 		</div>
 	);
 }

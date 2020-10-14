@@ -1,10 +1,10 @@
-function normalizeDate(date) {
+export function normalizeDate(date) {
 	const millisecondsInSecond = 1000;
 	return new Date(date * millisecondsInSecond);
 }
 
-function doubleDigitTimeUnit(unit){
-	return unit<10? `0${unit}`:unit;
+export function doubleDigitTimeUnit(unit){
+	return unit<10? `0${unit}`:`${unit}`;
 }
 
 export function timeParser(date){

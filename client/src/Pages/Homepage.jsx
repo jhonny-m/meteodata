@@ -13,6 +13,7 @@ function Homepage() {
 	const isResultsEmpty = results.length ===0;
 	return (
 		<div className={homepageStyles.container}>
+			
 			<div className={homepageStyles.citySearchContainer}>
 				<CitiesSearch handleSearchResponse={handleSearchResponse}/>
 			</div>
