@@ -1,22 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import homepageStyles from './Homepage.module.css';
 import CitiesSearch from '../Search/CitiesSearch';
-import ResultsTable from '../Results/Table/ResultsTable';
-import ResultsGraph from '../Results/Graph/ResultsGraph';
+import ResultsBody from '../Results/ResultsBody';
 
-function ResultsBody({results}){
-	return (
-		<div className={homepageStyles.container}>
-			<ResultsGraph results={results}/>
-			<ResultsTable results={results}/>
-		</div>
-	);
-
-}
-ResultsBody.propTypes={
-	results:PropTypes.array.isRequired,
-};
 
 function Homepage() {
 	const [results, setResults]= useState([]);
