@@ -6,8 +6,11 @@ import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import {mockedResults} from '../Results/TestUtils';
 
+
+const baseUrl = process.env.REACT_APP_DOMAIN;
+
 const server = setupServer(
-	rest.get('http://localhost:3001/search', (req, res, ctx) => {
+	rest.get(baseUrl+'/search', (req, res, ctx) => {
 		return res(ctx.json(mockedResults));
 	})
 );
@@ -41,7 +44,7 @@ test('CitiesSearch valid request ', async ()=>{
 
 test('CitiesSearch fail request ', async ()=>{
 	server.use(
-		rest.get('http://localhost:3001/search', (req, res, ctx) => {
+		rest.get(baseUrl+'/search', (req, res, ctx) => {
 			return res(ctx.status(500));
 		}));
 	const handleSearchResponse = jest.fn();
