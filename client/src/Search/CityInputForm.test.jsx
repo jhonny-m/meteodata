@@ -1,22 +1,9 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { fireEvent, render, screen, within } from '@testing-library/react';
-import { rest } from 'msw';
-import { setupServer } from 'msw/node';
-import {mockedResults} from '../Results/TestUtils';
+import { fireEvent, render, screen } from '@testing-library/react';
 import CityInputForm from './CityInputForm';
 
 
-
-// const server = setupServer(
-// 	rest.get('/search', (req, res, ctx) => {
-// 		return res(ctx.json(mockedResults));
-// 	})
-// );
-
-// beforeAll(() => server.listen());
-// afterEach(() => server.resetHandlers());
-// afterAll(() => server.close());
 
 test('CityInputForm',()=>{
 	const handleCityInputFormSubmit = jest.fn();

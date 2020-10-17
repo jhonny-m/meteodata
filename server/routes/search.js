@@ -21,10 +21,11 @@ const weatherResponseMapper = function(data){
 	};
 };
 
-const resolveWeatherRequestList = function(weatherRequestUrlList, callback){
+const resolveWeatherRequestList = function(weatherRequestUrlList, callback, next){
 	Promise.all(weatherRequestUrlList.map(url=>getUrlRequest(url))).then((values)=>{
 		callback( values.map(({data})=>weatherResponseMapper(data)));
-	});
+	})
+		.catch(next);
 };
 
 const responseSearchRequest = function(data, res){
@@ -32,10 +33,10 @@ const responseSearchRequest = function(data, res){
 };
 
 /* GET home page. */
-router.get('/', function(req,res){
+router.get('/', function(req,res,next){
 	const citiesList = req.query.cities;
 	const weatherRequestUrlList = citiesList.map(weatherRequestUrlBuilder);
-	resolveWeatherRequestList(weatherRequestUrlList,(data)=>responseSearchRequest(data,res));
+	resolveWeatherRequestList(weatherRequestUrlList,(data)=>responseSearchRequest(data,res),next);
 
 });
 module.exports = router;
