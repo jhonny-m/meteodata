@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3001/search?';
-
+const baseUrl = process.env.REACT_APP_DOMAIN;
+const searchPath = '/search?';
 export function citiesToQuery(cities){
 	return cities.reduce((acc, city,index)=>{
 		const queryConnector = index<cities.length-1?'&':'';
@@ -7,17 +7,19 @@ export function citiesToQuery(cities){
 	},'');
 }
 export function citiesSearchUrlBuilder(cities){
-	return `${baseUrl}${citiesToQuery(cities)}`;
+	return `${baseUrl}${searchPath}${citiesToQuery(cities)}`;
 }
 
 export function handleGetRequest(url, callback,handleError){
 	fetch(url).then((response)=> {
-		if(response.ok)		
+		if(response.ok)	{
 			return response.json();
-		throw new Error('request failed');
+		}	
+		else{
+			throw new Error('request failed');
+		}
+	}).then(data=>{
+		callback(data);
 	})
-		.then(data=>{
-			callback(data);
-		})
 		.catch(handleError);
 }

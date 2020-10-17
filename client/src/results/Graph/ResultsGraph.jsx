@@ -6,19 +6,17 @@ import {addCelciusSymbol} from '../TemperatureUtils';
 
 
 function ResultsGraph({results}) {
-	function graphWidthCalculator(currentWidth, windowWidth){
+	function graphWidthCalculator( windowWidth){
 		const maxWidth = 600;
 		const availableWidth = windowWidth-32;
-		if(currentWidth >= availableWidth ){
-			return availableWidth > maxWidth? maxWidth: availableWidth;
-		}
-		return currentWidth;
+		return availableWidth > maxWidth? maxWidth: availableWidth;
+		
 	
 	}
 	const [width,setWidth]= useState(graphWidthCalculator(window.innerWidth, window.innerWidth)); 
 	useEffect(()=>{
 		function handleResize(){
-			setWidth(graphWidthCalculator(width, window.innerWidth));
+			setWidth(graphWidthCalculator(window.innerWidth));
 		}
 		window.addEventListener('resize',handleResize);
 		return ()=>window.removeEventListener('resize', handleResize);

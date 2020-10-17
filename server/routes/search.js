@@ -1,12 +1,15 @@
 var express = require('express');
+var createError = require('http-errors');
 var router = express.Router();
 const axios = require('axios');
 
 const weatherRequestUrlBuilder = function(city){
+	const location = process.env.OWM_LOCATION;
+	const path = '/weather';
+	const queryStart = '?q=';
 	const keyParameter =  '&appid=';
 	const key = process.env.OWM_KEY;
-	const baseUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
-	return baseUrl + city + keyParameter + key;
+	return location+ path + queryStart + city + keyParameter + key;
 };
 
 const getUrlRequest=function(url ){
@@ -25,7 +28,7 @@ const resolveWeatherRequestList = function(weatherRequestUrlList, callback, next
 	Promise.all(weatherRequestUrlList.map(url=>getUrlRequest(url))).then((values)=>{
 		callback( values.map(({data})=>weatherResponseMapper(data)));
 	})
-		.catch(next);
+		.catch(()=>next(createError(500)));
 };
 
 const responseSearchRequest = function(data, res){

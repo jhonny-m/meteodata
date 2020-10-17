@@ -9,7 +9,6 @@ function Homepage() {
 	function handleSearchResponse (data){
 		setResults([...data]);
 	}
-
 	const isResultsEmpty = results.length ===0;
 	return (
 		<div className={homepageStyles.container}>
