@@ -7,7 +7,7 @@ import ResultsHeader  from './ResultsHeader';
 
 test('ResultsHeader',()=>{
 	const onOrderClick= jest.fn();
-	render(<ResultsHeader onOrderClick={onOrderClick}/>);
+	render(<table><thead><ResultsHeader onOrderClick={onOrderClick}/></thead></table>);
 	const orderButtons = screen.queryAllByRole('button');
 	expect(orderButtons.length).toStrictEqual(4);
 	fireEvent.click(orderButtons[0]);

@@ -12,7 +12,8 @@ function CitiesSearch({handleSearchResponse}) {
 	const [isFetching, setIsFetching]=useState(false);
 	const [showError, setShowError]=useState(false);
 	function handleCityInputFormSubmit(values){
-		setCities([...cities, values.cityInput]);
+		const updatedCities = new Set([...cities, values.cityInput.toLowerCase()]);
+		setCities([...updatedCities]);
 	}
 	function handleCityItemRemove(city){
 		cities.splice(cities.indexOf(city), 1);

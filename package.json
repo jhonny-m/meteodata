@@ -1,0 +1,29 @@
+{
+  "name": "meteodata",
+  "version": "1.0.0",
+  "description": "This React app allows user to search and compare temperature in celcius from 3 or more different cities. Aswell to check the time of sunrise and sunset. The app includes an small express API that will comunicate with an external API.",
+  "scripts": {
+    "test:client": "cd client && npm run test",
+    "test:server": "cd server && npm run test",
+    "start:client": "cd client && npm run start",
+    "build:client": "cd client && npm run build",
+    "start:server": "cd server && npm run start",
+    "start:dev": "concurrently  --kill-others \"npm:start:client\" \"npm:start:server\"",
+    "start:build": "concurrently  \"npm:build:client\" \"npm:start:server\"",
+    "start": "concurrently  --kill-others \"npm:start:client\" \"npm:start:server\"",
+    "test": "concurrently  \"npm:test:client\" \"npm:test:server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhonny-m/meteodata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhonny-m/meteodata/issues"
+  },
+  "homepage": "https://github.com/jhonny-m/meteodata#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
