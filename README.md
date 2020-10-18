@@ -8,7 +8,7 @@ To use the app you need an [Open Weather Map](https://openweathermap.org/) API k
 
 ## Installation
 
-Make sure you have Node (version 12+) and npm (6+) installed. 
+Make sure you have Node (version 12+) and npm (6+) installed.
 after cloning the repo, you need to install the dependencies individually for the client and server. On the root folder
 
 ```bash
@@ -25,7 +25,7 @@ cd client/
 npm install
 ```
 
-## Running the Application 
+## Running the Application
 
 The application uses a `.env` file for the client and one for the server. To be able to run the application you need to create them.
 To run locally we provide a template, to use them run:
@@ -37,11 +37,16 @@ The client template suffices enough information to run the application locally, 
 
 After this you should be able to run the app. on the root folder you have the following scripts
 
-To run tests on client or server or both:
+To build the client:
+```bash
+npm run build:client
+```
+
+Before running the server tests you must run the build command on the client, since the server points to the client build folder for the `/` route.
+To run the test:
 ```bash
 npm run test:client
 npm run test:server
-npm test
 ```
 
 To start the client, server or both in dev mode:
@@ -50,10 +55,10 @@ npm run start:client
 npm run start:server
 npm start
 ```
+To start the server pointing to the lastest client build:
 
-To build the client:
 ```bash
-npm run build:client
 npm run start:build
 ```
+
 The server `/` route points to the local build of the client, running this way will allow the server to serve the client build.

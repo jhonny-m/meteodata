@@ -10,8 +10,7 @@
     "start:server": "cd server && npm run start",
     "start:dev": "concurrently  --kill-others \"npm:start:client\" \"npm:start:server\"",
     "start:build": "concurrently  \"npm:build:client\" \"npm:start:server\"",
-    "start": "concurrently  --kill-others \"npm:start:client\" \"npm:start:server\"",
-    "test": "concurrently  \"npm:test:client\" \"npm:test:server\""
+    "start": "concurrently  --kill-others \"npm:start:client\" \"npm:start:server\""
   },
   "repository": {
     "type": "git",
